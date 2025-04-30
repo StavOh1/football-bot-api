@@ -48,13 +48,13 @@ def chat_api():
     live_data = get_live_games()
 
     if "כרטיס" in user_question or "עבירה" in user_question or "אירוע" in user_question:
-        for team in ["מכבי חיפה", "מכבי תל אביב", "הפועל באר שבע", "בית"ר ירושלים"]:
+        for team in ["מכבי חיפה", "מכבי תל אביב", "הפועל באר שבע", "בית\"ר ירושלים"]:
             if team in user_question:
                 return jsonify({"answer": get_team_events(team, live_data)})
         return jsonify({"answer": "אנא צייני את שם הקבוצה לגבי האירוע."})
 
     elif "תוצאה" in user_question or "כמה" in user_question or "מה קורה עם" in user_question:
-        for team in ["מכבי חיפה", "מכבי תל אביב", "בית"ר ירושלים", "הפועל באר שבע"]:
+        for team in ["מכבי תל אביב", "מכבי חיפה", "הפועל באר שבע", "בית\"ר ירושלים"]:
             if team in user_question:
                 return jsonify({"answer": get_team_live_status(team, live_data)})
         return jsonify({"answer": "לא מצאתי קבוצה תואמת בשאלה."})
