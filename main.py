@@ -71,4 +71,4 @@ def chat_api():
         return jsonify({"answer": "מצטער, לא הבנתי את השאלה. נסי שוב."})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=10000)
